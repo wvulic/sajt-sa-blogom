@@ -9,8 +9,17 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="hero-section relative h-screen overflow-hidden flex flex-col">
-        {/* Background */}
-        <div className="hero-bg absolute inset-0" />
+        {/* Video background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/40 dark:bg-black/50" />
 
         {/* Main content */}
         <div className="relative flex-1 max-w-7xl mx-auto w-full px-8 flex items-center">
