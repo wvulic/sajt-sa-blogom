@@ -3,7 +3,9 @@ import { getAllPostsMeta } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 
 export default function HomePage() {
-  const recentPosts = getAllPostsMeta().slice(0, 3);
+  const recentPosts = getAllPostsMeta().slice(0, 4);
+  const leftPosts = recentPosts.filter((_, i) => i % 2 === 0);
+  const rightPosts = recentPosts.filter((_, i) => i % 2 === 1);
 
   return (
     <>
@@ -57,24 +59,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Recent posts */}
+      {/* Recent posts — editorial grid */}
       {recentPosts.length > 0 && (
-        <section className="max-w-2xl mx-auto px-6 py-24">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--muted)] mb-8">
-            Najnoviji postovi
-          </h2>
-          <div>
-            {recentPosts.map((post) => (
-              <PostCard key={post.slug} {...post} />
-            ))}
-          </div>
-          <div className="mt-10">
-            <Link
-              href="/blog"
-              className="text-sm underline underline-offset-4 hover:opacity-60 transition-opacity"
-            >
-              Svi postovi →
-            </Link>
+        <section className="max-w-7xl mx-auto px-8 py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-16 lg:gap-24 items-start">
+
+            {/* Left: intro text */}
+            <div className="lg:pt-4">
+              <p className="text-xl leading-relaxed mb-8 max-w-sm">
+                Pišem bez strogog rasporeda — kada imam nešto da kažem.
+                Teme variraju, ton ostaje isti.
+              </p>
+              <Link
+                href="/blog"
+                className="text-sm border-b border-[var(--foreground)] pb-0.5 hover:opacity-50 transition-opacity"
+              >
+                Svi postovi
+              </Link>
+            </div>
+
+            {/* Right: staggered 2-col card grid */}
+            <div className="grid grid-cols-2 gap-0">
+              {/* Left column */}
+              <div className="flex flex-col">
+                {leftPosts.map((post) => (
+                  <PostCard key={post.slug} {...post} />
+                ))}
+              </div>
+              {/* Right column — offset down */}
+              <div className="flex flex-col mt-16">
+                {rightPosts.map((post) => (
+                  <PostCard key={post.slug} {...post} />
+                ))}
+              </div>
+            </div>
+
           </div>
         </section>
       )}
