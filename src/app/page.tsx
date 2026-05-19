@@ -11,20 +11,20 @@ export default function HomePage() {
       <section className="hero-section relative h-screen overflow-hidden flex flex-col">
         {/* Video background */}
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top brightness-75"
           src="/video.mp4"
           autoPlay
           loop
           muted
           playsInline
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-white/40 dark:bg-black/50" />
+        {/* Subtle overlay for text readability */}
+        <div className="absolute inset-0 bg-black/20" />
 
         {/* Main content */}
         <div className="relative flex-1 max-w-7xl mx-auto w-full px-8 flex items-center">
           {/* Large heading — left */}
-          <h1 className="hero-heading font-bold leading-none tracking-tighter select-none">
+          <h1 className="hero-heading font-bold leading-none tracking-tighter select-none text-white">
             Pišem
             <br />
             da
@@ -34,7 +34,7 @@ export default function HomePage() {
 
           {/* Subtitle — right, aligned to bottom of heading area */}
           <div className="absolute right-8 bottom-1/3 max-w-xs">
-            <p className="text-lg leading-relaxed mb-6 text-[var(--foreground)]">
+            <p className="text-lg leading-relaxed mb-6 text-white/90">
               Lični blog Vanje Palića.
               <br />
               Misli, zapažanja i teme
@@ -43,7 +43,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/blog"
-              className="text-sm border-b border-[var(--foreground)] pb-0.5 hover:opacity-50 transition-opacity"
+              className="text-sm text-white border-b border-white/70 pb-0.5 hover:opacity-50 transition-opacity"
             >
               Čitaj blog
             </Link>
@@ -52,7 +52,7 @@ export default function HomePage() {
 
         {/* Bottom bar */}
         <div className="relative max-w-7xl mx-auto w-full px-8 pb-8 flex items-end justify-between">
-          <span className="text-sm text-[var(--muted)] tracking-widest">Scroll</span>
+          <span className="text-sm text-white/60 tracking-widest">Scroll</span>
           <span className="scroll-dot" />
         </div>
       </section>
