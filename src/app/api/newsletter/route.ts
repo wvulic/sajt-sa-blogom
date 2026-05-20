@@ -1,9 +1,8 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   const body = await request.json()
   const email: string = body?.email?.trim()
   console.log('Newsletter API hit, email:', email, 'apiKey exists:', !!process.env.RESEND_API_KEY, 'audienceId:', process.env.RESEND_AUDIENCE_ID)
