@@ -18,7 +18,12 @@ export default function NewsletterSection() {
       body: JSON.stringify({ email }),
     })
 
-    const data = await res.json()
+    let data: { error?: string } = {}
+    try {
+      data = await res.json()
+    } catch {
+      // prazno telo odgovora
+    }
 
     if (res.ok) {
       setStatus("success")
