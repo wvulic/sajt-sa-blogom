@@ -23,6 +23,7 @@ export function getAllPostsMeta(): PostMeta[] {
         title: data.title as string,
         date: data.date as string,
         excerpt: data.excerpt as string,
+        coverImage: data.coverImage as string | undefined,
       };
     });
 
@@ -49,6 +50,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     title: data.title as string,
     date: data.date as string,
     excerpt: data.excerpt as string,
+    coverImage: data.coverImage as string | undefined,
     contentHtml,
   };
 }

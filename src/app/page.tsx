@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllPostsMeta } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
+import NewsletterSection from "@/components/NewsletterSection";
 
 export default function HomePage() {
   const recentPosts = getAllPostsMeta().slice(0, 4);
@@ -97,6 +98,8 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      <NewsletterSection />
     </>
   );
 }
